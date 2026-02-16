@@ -1,0 +1,273 @@
+:root {
+  --bg: #0c0c0c;
+  --white: #ffffff;
+  --dim: rgba(255, 255, 255, 0.74);
+  --dimmer: rgba(255, 255, 255, 0.58);
+  --input-bg: rgba(255, 255, 255, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.6;
+  font-family: "EB Garamond", serif;
+}
+
+/* Layout */
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.content {
+  width: min(860px, 100%);
+}
+
+/* Title */
+.title {
+  margin: 0 0 0 -4px; /* optical alignment */
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: clamp(38px, 5vw, 58px);
+  flex-wrap: wrap;
+  line-height: 1.02;
+
+  /* subtle print softness */
+  text-shadow: 0 0 1px rgba(255,255,255,0.18);
+}
+
+/* IMPORTANT FIX:
+   Use inline-flex so whitespace/newlines between letter spans do NOT create gaps */
+.title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.40ch;   /* controlled word spacing */
+}
+
+.title .word {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+
+/* Letters */
+.funky .letter {
+  display: inline-block;
+  transform-origin: center;
+  animation: titleFilmLite 1800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --- Word 1: BURLINGTON (10 letters) --- */
+.funky .word:nth-of-type(1) .letter:nth-child(1)  { --dy: -3px; animation-delay: 120ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(2)  { --dy:  2px; animation-delay:  40ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(3)  { --dy: -2px; animation-delay: 200ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(4)  { --dy:  3px; animation-delay:  90ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(5)  { --dy: -4px; animation-delay: 170ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(6)  { --dy:  1px; animation-delay:  20ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(7)  { --dy: -3px; animation-delay: 260ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(8)  { --dy:  2px; animation-delay:  70ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(9)  { --dy: -1px; animation-delay: 210ms; }
+.funky .word:nth-of-type(1) .letter:nth-child(10) { --dy:  2px; animation-delay: 110ms; }
+
+/* --- Word 2: SOUNDS (6 letters) --- */
+.funky .word:nth-of-type(2) .letter:nth-child(1) { --dy: -3px; animation-delay:  55ms; }
+.funky .word:nth-of-type(2) .letter:nth-child(2) { --dy:  2px; animation-delay: 230ms; }
+.funky .word:nth-of-type(2) .letter:nth-child(3) { --dy: -2px; animation-delay:  95ms; }
+.funky .word:nth-of-type(2) .letter:nth-child(4) { --dy:  3px; animation-delay: 290ms; }
+.funky .word:nth-of-type(2) .letter:nth-child(5) { --dy: -2px; animation-delay: 150ms; }
+.funky .word:nth-of-type(2) .letter:nth-child(6) { --dy:  1px; animation-delay:  30ms; }
+
+@keyframes titleFilmLite {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--dy, 0px));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .funky .letter {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Meta */
+.meta {
+  margin: 14px 0 16px 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* Blurb */
+.blurb {
+  margin: 0 0 26px 0;
+  font-size: 17px;
+  max-width: 65ch;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Form */
+.form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.form input {
+  flex: 1 1 280px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--input-bg);
+  color: var(--white);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form button {
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form button:hover {
+  border-color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Subscribe note */
+.subscribe-note {
+  margin: 12px 0 0 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  color: var(--dimmer);
+}
+
+/* Footer */
+.footer {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-meta {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dimmer);
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+/* For Artists page blocks */
+.artist-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 16px 16px 14px 16px;
+  margin: 14px 0;
+}
+
+.artist-h2 {
+  margin: 0 0 10px 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.artist-list {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.artist-list li {
+  margin: 6px 0;
+}
+
+.artist-steps {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.artist-steps li {
+  margin: 6px 0;
+}
+
+.artist-small {
+  margin: 10px 0 0 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.artist-cta {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.7);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.artist-cta:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.95);
+}
+
+@media (max-width: 600px) {
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+  }
+}

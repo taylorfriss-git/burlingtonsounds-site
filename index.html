@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Burlington Sounds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=EB+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <main class="shell" role="main">
+    <div class="content">
+
+      <h1 class="title funky" aria-label="Burlington Sounds">
+  <span class="word">
+    <span class="letter">B</span><span class="letter">U</span><span class="letter">R</span><span class="letter">L</span>
+    <span class="letter">I</span><span class="letter">N</span><span class="letter">G</span><span class="letter">T</span>
+    <span class="letter">O</span><span class="letter">N</span>
+  </span>
+
+  <span class="word">
+    <span class="letter">S</span><span class="letter">O</span><span class="letter">U</span>
+    <span class="letter">N</span><span class="letter">D</span><span class="letter">S</span>
+  </span>
+</h1>
+
+
+
+      <p class="meta">Vol. 1 · 2026 · Burlington, VT</p>
+
+      <p class="blurb">
+        A vinyl compilation featuring artists from across Burlington’s music scene.
+      </p>
+
+      <!-- MAILCHIMP FORM -->
+      <form
+        class="form"
+        id="mc-form"
+        action="https://burlingtonsounds.us8.list-manage.com/subscribe/post?u=23f65d9a16e70a2abb4ff0c84&id=c24270f534"
+        method="post"
+        target="mc-iframe"
+        novalidate
+        aria-label="Subscribe for updates"
+      >
+
+        <label class="sr-only" for="mce-EMAIL">Email address</label>
+
+        <input
+          id="mce-EMAIL"
+          type="email"
+          name="EMAIL"
+          placeholder="Email address"
+          required
+          autocapitalize="off"
+          autocorrect="off"
+          autocomplete="email"
+        />
+
+        <!-- Bot protection (recommended by Mailchimp) -->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_23f65d9a16e70a2abb4ff0c84_c24270f534" tabindex="-1" value="" />
+        </div>
+
+        <button type="submit">Join the Pressing List</button>
+
+      </form>
+
+      <!-- Hidden iframe (prevents redirect) -->
+      <iframe
+        name="mc-iframe"
+        id="mc-iframe"
+        style="display:none;"
+        title="Mailchimp hidden iframe">
+      </iframe>
+
+      <!-- SUCCESS STATE -->
+      <div id="mc-success" style="display:none;">
+        <p class="subscribe-note">
+          Needle dropped.<br />
+          Check your inbox to confirm and ensure you get updates.
+        </p>
+      </div>
+
+      <!-- OPTIONAL MESSAGE -->
+      <p id="mc-message" class="subscribe-note" aria-live="polite" style="display:none;"></p>
+
+      <p class="subscribe-note">
+        Subscribe for artist announcements, crowdfunding launch details, and release info.
+      </p>
+
+      <footer class="footer" aria-label="Footer">
+        <p class="footer-meta">© 2026 Champ Records</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+    (function () {
+      const form = document.getElementById("mc-form");
+      const emailInput = document.getElementById("mce-EMAIL");
+      const success = document.getElementById("mc-success");
+      const msg = document.getElementById("mc-message");
+
+      function showMessage(text) {
+        msg.textContent = text;
+        msg.style.display = "block";
+      }
+
+      form.addEventListener("submit", function () {
+        const email = (emailInput.value || "").trim();
+        if (!email) return; // browser handles validation
+
+        // Immediately swap UI (no redirect)
+        form.style.display = "none";
+        success.style.display = "block";
+
+        // Gentle follow-up guidance
+        setTimeout(function () {
+          showMessage("If you don’t see a confirmation email, check spam or try again.");
+        }, 2000);
+      });
+    })();
+  </script>
+
+</body>
+</html>
