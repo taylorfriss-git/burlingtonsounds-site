@@ -271,3 +271,17 @@ body {
     gap: 0.15em;
   }
 }
+
+.ig-link {
+  color: inherit;                 /* uses your site’s text color */
+  text-decoration: none;          /* remove default underline */
+  border-bottom: 1px solid #c9a227; /* warm mustard accent */
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.ig-link:hover {
+  border-bottom: 1px solid #000;
+  opacity: 0.8;
+}
