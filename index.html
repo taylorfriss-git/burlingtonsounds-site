@@ -32,6 +32,7 @@
           <span class="letter">I</span><span class="letter">N</span><span class="letter">G</span><span class="letter">T</span>
           <span class="letter">O</span><span class="letter">N</span>
         </span>
+
         <span class="word">
           <span class="letter">S</span><span class="letter">O</span><span class="letter">U</span>
           <span class="letter">N</span><span class="letter">D</span><span class="letter">S</span>
@@ -54,7 +55,6 @@
         novalidate
         aria-label="Subscribe for updates"
       >
-
         <label class="sr-only" for="mce-EMAIL">Email address</label>
 
         <input
@@ -68,15 +68,15 @@
           autocomplete="email"
         />
 
-        <!-- Bot protection -->
+        <!-- Bot protection (recommended by Mailchimp) -->
         <div style="position: absolute; left: -5000px;" aria-hidden="true">
           <input type="text" name="b_23f65d9a16e70a2abb4ff0c84_c24270f534" tabindex="-1" value="" />
         </div>
 
-        <button type="submit">Tune In</button>
+        <button type="submit" id="mc-submit">Tune In</button>
       </form>
 
-      <!-- Hidden iframe -->
+      <!-- Hidden iframe (prevents redirect) -->
       <iframe
         name="mc-iframe"
         id="mc-iframe"
@@ -88,14 +88,14 @@
       <div id="mc-success" style="display:none;">
         <p class="subscribe-note">
           Needle dropped.<br />
-          Follow along on Instagram 
-          <a href="https://www.instagram.com/burlingtonsounds/" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             class="ig-link"
-             id="ig-link">
-             @burlingtonsounds
-          </a> 
+          Follow along on Instagram
+          <a
+            href="https://www.instagram.com/burlingtonsounds/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ig-link"
+            id="ig-link"
+          >@burlingtonsounds</a>
           for behind-the-scenes updates and artist reveals.
         </p>
       </div>
@@ -119,47 +119,132 @@
     (function () {
       const form = document.getElementById("mc-form");
       const emailInput = document.getElementById("mce-EMAIL");
+      const submitBtn = document.getElementById("mc-submit");
       const success = document.getElementById("mc-success");
       const msg = document.getElementById("mc-message");
       const igLink = document.getElementById("ig-link");
+
+      // ---- Tracking state (per-page-load) ----
+      let formFocusedAt = null;
+      let firstTypedAt = null;
+      let hasTyped = false;
+      let hasSubmitted = false;
+      let abandonSent = false;
 
       function showMessage(text) {
         msg.textContent = text;
         msg.style.display = "block";
       }
 
+      function track(eventName, params) {
+        if (typeof gtag === "function") {
+          gtag("event", eventName, params || {});
+        }
+      }
+
+      function secondsSince(ts) {
+        if (!ts) return null;
+        return Math.round((Date.now() - ts) / 1000);
+      }
+
+      // 1) Focus / start of intent
+      emailInput.addEventListener("focus", function () {
+        if (!formFocusedAt) formFocusedAt = Date.now();
+      });
+
+      // 2) First typing (start)
+      emailInput.addEventListener("input", function () {
+        if (!hasTyped) {
+          hasTyped = true;
+          firstTypedAt = Date.now();
+          track("email_signup_start", {
+            event_category: "engagement",
+            event_label: "homepage_form"
+          });
+        }
+      });
+
+      // 3) Button click (pre-submit intent)
+      submitBtn.addEventListener("click", function () {
+        track("email_signup_click", {
+          event_category: "engagement",
+          event_label: "homepage_form_button"
+        });
+      });
+
+      // 4) Submit (you show success immediately, so we count conversion here)
       form.addEventListener("submit", function () {
         const email = (emailInput.value || "").trim();
-        if (!email) return;
+        if (!email) return; // browser handles validation
 
-        // Swap UI
+        hasSubmitted = true;
+
+        // Swap UI (no redirect)
         form.style.display = "none";
         success.style.display = "block";
 
-        // 🔥 GA4 conversion event
-        if (typeof gtag === "function") {
-          gtag('event', 'email_signup', {
-            event_category: 'engagement',
-            event_label: 'homepage_form',
-            value: 1
-          });
-        }
+        // Conversion event (success shown)
+        track("email_signup", {
+          event_category: "engagement",
+          event_label: "homepage_form_success",
+          value: 1,
+          // time-to-submit metrics (best effort)
+          seconds_from_focus: formFocusedAt ? secondsSince(formFocusedAt) : undefined,
+          seconds_from_first_type: firstTypedAt ? secondsSince(firstTypedAt) : undefined,
+          started_typing: hasTyped ? 1 : 0
+        });
 
-        // Follow-up guidance
+        // Gentle follow-up guidance
         setTimeout(function () {
           showMessage("If you don’t see a confirmation email, check spam or try again.");
         }, 2000);
       });
 
-      // Track Instagram clicks
+      // 5) Abandonment (focused/typed but never submitted)
+      function maybeSendAbandon(reason) {
+        if (abandonSent || hasSubmitted) return;
+
+        // Only count abandon if they showed intent
+        if (!formFocusedAt && !hasTyped) return;
+
+        abandonSent = true;
+        track("email_signup_abandon", {
+          event_category: "engagement",
+          event_label: "homepage_form",
+          abandon_reason: reason,
+          seconds_from_focus: formFocusedAt ? secondsSince(formFocusedAt) : undefined,
+          seconds_from_first_type: firstTypedAt ? secondsSince(firstTypedAt) : undefined,
+          started_typing: hasTyped ? 1 : 0
+        });
+      }
+
+      // If they leave the page / close tab / navigate away
+      window.addEventListener("pagehide", function () {
+        maybeSendAbandon("pagehide");
+      });
+
+      // If they switch tabs or background (not perfect, but useful)
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") {
+          maybeSendAbandon("visibility_hidden");
+        }
+      });
+
+      // Optional: if they blur out of the email field and haven't submitted
+      emailInput.addEventListener("blur", function () {
+        // small delay so submit click doesn’t falsely mark abandon
+        setTimeout(function () {
+          if (!hasSubmitted) maybeSendAbandon("input_blur");
+        }, 300);
+      });
+
+      // 6) Instagram click
       if (igLink) {
         igLink.addEventListener("click", function () {
-          if (typeof gtag === "function") {
-            gtag('event', 'instagram_click', {
-              event_category: 'engagement',
-              event_label: 'homepage_success_state'
-            });
-          }
+          track("instagram_click", {
+            event_category: "engagement",
+            event_label: "homepage_success_state"
+          });
         });
       }
 
