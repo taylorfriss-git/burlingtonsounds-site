@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Burlington Sounds · Vinyl Compilation · Burlington, VT</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Burlington Sounds is a vinyl compilation featuring artists from Burlington, Vermont. Sign up for updates, artist reveals, and the crowdfunding launch for Vol. 1." />
-<meta property="og:title" content="Burlington Sounds · Vol. 1" />
-<meta property="og:description" content="A vinyl compilation featuring artists from Burlington, Vermont. Sign up for updates and the crowdfunding launch." />
-<meta property="og:url" content="https://burlingtonsounds.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://burlingtonsounds.com/og.jpg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=EB+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://burlingtonsounds.com/" />
+  <title>Burlington Sounds, vol. 1 · A Vinyl Compilation from Burlington, VT</title>
 
-  <link rel="stylesheet" href="styles.css" />
+  <meta
+    name="description"
+    content="Fourteen artists from Burlington, Vermont's music scene on one limited-edition 12&quot; vinyl record. 100% of profits go to the musicians. Pre-order now for $25."
+  >
+
+  <link rel="canonical" href="https://burlingtonsounds.com/">
+
+  <!-- Social sharing preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://burlingtonsounds.com/">
+  <meta property="og:site_name" content="Burlington Sounds">
+  <meta property="og:title" content="Burlington Sounds, vol. 1">
+  <meta property="og:description" content="Fourteen artists from Burlington's music scene on one limited-edition vinyl record. 100% of profits go to the musicians.">
+  <meta property="og:image" content="https://burlingtonsounds.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Burlington Sounds, vol. 1 album cover with green vinyl record">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <link rel="preload" as="image" href="assets/album-cover.jpg">
+  <link rel="stylesheet" href="early-access.css">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XQGM79ECF"></script>
@@ -27,253 +39,597 @@
     gtag('js', new Date());
     gtag('config', 'G-1XQGM79ECF');
   </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicAlbum",
-  "name": "Burlington Sounds, Vol. 1",
-  "datePublished": "2026",
-  "genre": "Compilation",
-  "byArtist": {
-    "@type": "MusicGroup",
-    "name": "Burlington Sounds"
-  },
-  "url": "https://burlingtonsounds.com/"
-}
-</script>
 
-  
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicAlbum",
+    "name": "Burlington Sounds, vol. 1",
+    "albumProductionType": "https://schema.org/CompilationAlbum",
+    "url": "https://burlingtonsounds.com/",
+    "image": "https://burlingtonsounds.com/assets/og-image.jpg",
+    "byArtist": { "@type": "MusicGroup", "name": "Various Artists" },
+    "recordLabel": { "@type": "Organization", "name": "Champ Records" }
+  }
+  </script>
 </head>
 
 <body>
 
-  <main class="shell" role="main">
-    <div class="content">
+  <header class="site-header">
+    <a href="/" class="brand">
+      BURLINGTON SOUNDS
+    </a>
 
-      <h1 class="title funky" aria-label="Burlington Sounds">
-        <span class="word">
-          <span class="letter">B</span><span class="letter">U</span><span class="letter">R</span><span class="letter">L</span>
-          <span class="letter">I</span><span class="letter">N</span><span class="letter">G</span><span class="letter">T</span>
-          <span class="letter">O</span><span class="letter">N</span>
-        </span>
+    <a
+      href="https://shop.burlingtonsounds.com/"
+      class="header-shop-link"
+    >
+      Shop
+    </a>
+  </header>
 
-        <span class="word">
-          <span class="letter">S</span><span class="letter">O</span><span class="letter">U</span>
-          <span class="letter">N</span><span class="letter">D</span><span class="letter">S</span>
-        </span>
-      </h1>
 
-      <p class="meta">Vol. 1 · 2026 · Burlington, VT</p>
+  <main>
 
-      <p class="blurb">
-        A vinyl compilation featuring artists from across Burlington’s music scene.
-      </p>
+    <!-- HERO -->
+    <section class="hero">
 
-      <!-- MAILCHIMP FORM -->
-      <form
-        class="form"
-        id="mc-form"
-        action="https://burlingtonsounds.us8.list-manage.com/subscribe/post?u=23f65d9a16e70a2abb4ff0c84&id=c24270f534"
-        method="post"
-        target="mc-iframe"
-        novalidate
-        aria-label="Subscribe for updates"
-      >
-        <label class="sr-only" for="mce-EMAIL">Email address</label>
-
-        <input
-          id="mce-EMAIL"
-          type="email"
-          name="EMAIL"
-          placeholder="Email address"
-          required
-          autocapitalize="off"
-          autocorrect="off"
-          autocomplete="email"
-        />
-
-        <!-- Bot protection (recommended by Mailchimp) -->
-        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-          <input type="text" name="b_23f65d9a16e70a2abb4ff0c84_c24270f534" tabindex="-1" value="" />
-        </div>
-
-        <button type="submit" id="mc-submit">Tune In</button>
-      </form>
-
-      <!-- Hidden iframe (prevents redirect) -->
-      <iframe
-        name="mc-iframe"
-        id="mc-iframe"
-        style="display:none;"
-        title="Mailchimp hidden iframe">
-      </iframe>
-
-      <!-- SUCCESS STATE -->
-      <div id="mc-success" style="display:none;">
-        <p class="subscribe-note">
-          Needle dropped.<br />
-          Follow along on Instagram
-          <a
-            href="https://www.instagram.com/burlingtonsounds/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="ig-link"
-            id="ig-link"
-          >@burlingtonsounds</a>
-          for behind-the-scenes updates and artist reveals.
-        </p>
+      <div class="hero-art">
+        <img
+          src="assets/album-cover.jpg"
+          alt="Burlington Sounds, vol. 1 album cover with green vinyl record"
+          fetchpriority="high"
+          width="1800"
+          height="1271"
+        >
       </div>
 
-      <!-- OPTIONAL MESSAGE -->
-      <p id="mc-message" class="subscribe-note" aria-live="polite" style="display:none;"></p>
+      <div class="hero-copy">
 
-      <p class="subscribe-note">
-        Subscribe for artist announcements, crowdfunding launch details, and release info.
+        <h1>
+          Burlington Sounds, <span>vol. 1</span>
+        </h1>
+
+        <p class="hero-tagline">
+          Discover fourteen artists from Burlington's thriving music scene,
+          all on one vinyl&nbsp;record.
+        </p>
+
+        <ul class="hero-badges">
+          <li class="badge badge-green">100% of profits go to the musicians</li>
+          <li class="badge badge-orange">One-time limited pressing</li>
+        </ul>
+
+        <p class="hero-details">
+          14 Tracks · 12" Vinyl · $25
+        </p>
+
+        <a
+          href="https://shop.burlingtonsounds.com/products/burlington-sounds-vol-1"
+          class="button button-primary"
+        >
+          Pre-order the Record
+        </a>
+
+        <p class="shipping-note">
+          Estimated shipping November 2026.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- MEET THE BANDS -->
+    <section class="bands-carousel" aria-label="Meet the bands">
+
+      <div class="carousel-header">
+        <h2 class="carousel-title">Meet the bands</h2>
+
+        <div class="carousel-buttons">
+          <button type="button" class="carousel-button" data-direction="-1" aria-label="Previous bands">&larr;</button>
+          <button type="button" class="carousel-button" data-direction="1" aria-label="Next bands">&rarr;</button>
+        </div>
+      </div>
+
+      <ul class="carousel-track">
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/all-night-boogie-band.jpg" alt="All Night Boogie Band" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>All Night Boogie Band</h3>
+            <p class="band-song">“Keep On Rolling”</p>
+            <p>All Night Boogie Band is a groovy rock-and-roll band that will have you dancing, well…all night! Formed in Burlington through impromptu blues jams, the band blends soaring vocals, deep blues riffs, rollicking piano, blazing horns, and a rock-solid rhythm section into an electrifying live show. Hundreds of performances later, they’re still carrying the torch for classic rhythm &amp; blues in Burlington.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/bob-wagner.jpg" alt="Bob Wagner" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Bob Wagner</h3>
+            <p class="band-song">“Sad and Lonesome”</p>
+            <p>Bob Wagner is a songwriter and guitarist whose music draws from folk, country, and Americana traditions. A collaborator with musicians such as Mike Gordon and Kat Wright, Bob combines seasoned musicianship with heartfelt songwriting, delivering songs rich in melody, character, and storytelling.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/hammydown.jpg" alt="Hammydown" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Hammydown</h3>
+            <p class="band-song">“Outside”</p>
+            <p>Hammydown is the grunge-pop project of Abbie Morin, formed in 2016. Their songs match catchy riffs to introspective musings often about the perpetual metamorphosis of the human experience.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/acqua-mossa.jpg" alt="Acqua Mossa" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Acqua Mossa</h3>
+            <p class="band-song">“Running Out of Tricks”</p>
+            <p>Acqua Mossa is a trio born of deep rooted relationships and a hunger for the unconventional. The group’s influences are broad ranging; a quality felt in the spectrum of their emotional, synth heavy compositions, intimate and charged storytelling, and groove inspired underbelly.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/good-gravy.jpg" alt="Good Gravy" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Good Gravy</h3>
+            <p class="band-song">“I Can Hide You”</p>
+            <p>Good Gravy is a trio keeping traditional bluegrass and Americana roots music alive and well. Catch them around town singing soulful harmonies, picking blazing hot licks, and telling tales through classic covers and timeless originals.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/danny-and-the-parts.jpg" alt="Danny &amp; the Parts" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Danny &amp; the Parts</h3>
+            <p class="band-song">“Getting All the Hugs”</p>
+            <p>Danny &amp; the Parts is an ever rotating crew of musicians led by Danny LeFrancois, that will spin you out to the dance floor and leave you wanting more with their whimsical telecaster Honky-Tonk Americana Magic.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/remi-russin.jpg" alt="Remi Russin" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Remi Russin</h3>
+            <p class="band-song">“In the Backyard”</p>
+            <p>Remi Russin is a Winooski based multi-instrumentalist and songwriter that combines ambient influences with the melodic sensibilities of dream pop, shoegaze, and post punk to create something entirely its own, evoking a deep sense of longing nostalgia, and reflecting poignantly on loneliness and grief. A longtime fixture of the Burlington, VT music scene, Russin’s work reflects a deep seated DIY ethos.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/clive.jpg" alt="Clive" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Clive</h3>
+            <p class="band-song">“Nightcrawlers Reprise”</p>
+            <p>Clive formed in Burlington after its members met through the University of Vermont and the local music scene. What began as a group of friends tackling challenging progressive rock compositions quickly evolved into one of Burlington’s most adventurous live bands. Inspired by Burlington’s rich jam tradition, Clive continues to push the envelope with inventive songwriting, fearless improvisation, and a relentless dedication to musicianship.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/cady-ternity.jpg" alt="Cady Ternity" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Cady Ternity</h3>
+            <p class="band-song">“When I Get There”</p>
+            <p>Cady Ternity is a Central Vermont-based three piece. Music is THE BEST.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/lamp.jpg" alt="LaMP" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>LaMP</h3>
+            <p class="band-song">“Clipse-O”</p>
+            <p>Jam-rock organ trio LaMP was born on a magical night at Nectar’s in 2018. The music got so hot it set off the fire alarm, sending a packed dance floor into the frigid Vermont winter. Featuring members of Trey Anastasio Band and Joe Russo’s Almost Dead, LaMP has been fueled by effortless chemistry and deeply infectious grooves ever since.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/cricket-blue.jpg" alt="Cricket Blue" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Cricket Blue</h3>
+            <p class="band-song">“I Hope You Never Think of Me”</p>
+            <p>Cricket Blue creates indie chamber folk to make you weep into your tomatoes.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/burly-girlies.jpg" alt="Burly Girlies" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Burly Girlies</h3>
+            <p class="band-song">“Mosh Pit”</p>
+            <p>Burly Girlies will yell in your face, kiss you on the cheek, and gather the fems and thems in the pit. Their mix of vulnerable and fun punk rock will get you riled up in more ways than one. Their songs include themes relating to feminism, anti-capitalism, sapphic love, and grooming. Burly Girlies hopes to inspire, charm, enrage, and make you laugh all at the same time.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/eustis.jpg" alt="Eustis" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Eustis</h3>
+            <p class="band-song">“Ain’t No Revenge”</p>
+            <p>Eustis is the musical outfit of musician and producer Dan Bishop. Dan’s music reflects on life’s emotional moments in a way that’s relatable, comfortable, and simply put, beautiful.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/three-piece-meal.jpg" alt="Three Piece Meal" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Three Piece Meal</h3>
+            <p class="band-song">Intro/Outro – “Gunky”</p>
+            <p>Three Piece Meal is an organ trio bound to get your booty shaking with their smooth, jazzy, and funky sounds. They pay homage to organ trio greats while adding a dash of their own modern flavors to keep things fresh.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="band-card" aria-haspopup="dialog">
+            <img src="assets/artists/kris-brown.jpg" alt="Kris Brown" width="800" height="1000" loading="lazy">
+          </button>
+          <div class="band-info" hidden>
+            <h3>Kris Brown</h3>
+            <p class="band-song">Intro/Outro – Voiceover</p>
+            <p>Kris Brown is a professional voice actor known for his deep voice, versatility, and regional voice-over work. He provides voice-over services for commercials, cartoons, audiobooks, and podcasts. His own podcast ‘Cannasations w/ Kris’ explores the ins-and-outs of Vermont’s cannabis culture/industry with others in the space.</p>
+          </div>
+        </li>
+      </ul>
+
+    </section>
+
+
+    <!-- Flowers run down the left edge from here on -->
+    <div class="flower-edge">
+
+    <!-- INTRO -->
+    <section class="intro section">
+
+      <p class="section-label">
+        Welcome to Burlington Sounds.
       </p>
 
-      <footer class="footer" aria-label="Footer">
-        <p class="footer-meta">© 2026 Champ Records</p>
-      </footer>
+      <div class="intro-grid">
+
+        <h2>
+          Burlington's music scene runs deep.
+        </h2>
+
+        <div class="intro-copy">
+          <p>
+            There's something special happening in Burlington.
+          </p>
+
+          <p>
+            For a small city tucked between the Green Mountains and Lake
+            Champlain, Burlington's music scene punches above its weight.
+            From backyard shows to stages around the world, the musicians
+            coming out of this corner of Vermont have a reach that goes far
+            beyond its borders.
+          </p>
+
+          <p>
+            It's a scene where internationally touring musicians share stages
+            with emerging local bands, and where you can catch something
+            incredible on just about any night of the week.
+          </p>
+
+          <p>
+            Burlington Sounds was created to capture a little piece of that
+            magic — and help more people discover the musicians behind it.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TRACKLIST -->
+    <section class="tracklist-section section">
+
+      <div class="tracklist-heading">
+        <p class="section-label">The Record</p>
+        <h2>Tracklist</h2>
+      </div>
+
+      <div class="tracklist">
+
+        <div class="side">
+          <p class="side-label">Side A</p>
+
+          <div class="track">
+            <h3>All Night Boogie Band</h3>
+            <p>Keep On Rolling</p>
+          </div>
+
+          <div class="track">
+            <h3>Bob Wagner</h3>
+            <p>Sad and Lonesome</p>
+          </div>
+
+          <div class="track">
+            <h3>Hammydown</h3>
+            <p>Outside</p>
+          </div>
+
+          <div class="track">
+            <h3>Acqua Mossa</h3>
+            <p>Running Out of Tricks</p>
+          </div>
+
+          <div class="track">
+            <h3>Good Gravy</h3>
+            <p>I Can Hide You</p>
+          </div>
+
+          <div class="track">
+            <h3>Danny &amp; the Parts</h3>
+            <p>Getting All the Hugs</p>
+          </div>
+        </div>
+
+
+        <div class="side">
+          <p class="side-label">Side B</p>
+
+          <div class="track">
+            <h3>Remi Russin</h3>
+            <p>In the Backyard</p>
+          </div>
+
+          <div class="track">
+            <h3>Clive</h3>
+            <p>Nightcrawlers Reprise</p>
+          </div>
+
+          <div class="track">
+            <h3>Cady Ternity</h3>
+            <p>When I Get There</p>
+          </div>
+
+          <div class="track">
+            <h3>LaMP</h3>
+            <p>Clipse-O</p>
+          </div>
+
+          <div class="track">
+            <h3>Cricket Blue</h3>
+            <p>I Hope You Never Think of Me</p>
+          </div>
+
+          <div class="track">
+            <h3>Burly Girlies</h3>
+            <p>Mosh Pit</p>
+          </div>
+
+          <div class="track">
+            <h3>Eustis</h3>
+            <p>Ain't No Revenge</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="tracklist-credit">
+        Intro &amp; outro: “Gunky” by Three Piece Meal, with voiceover by
+        Kris Brown.
+      </p>
+
+    </section>
+
+
+    <!-- PRODUCT -->
+    <section class="product-section section">
+
+      <div class="product-image">
+        <img
+          src="assets/record-shirt-hat.jpg"
+          alt="Burlington Sounds, vol. 1 on green vinyl with a cream tracklist T-shirt and a brown Champ Records cap"
+          width="1600"
+          height="1164"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="product-copy">
+        <p class="section-label">Burlington Sounds, vol. 1</p>
+
+        <h2>
+          A little bit of everything.<br>
+          All Burlington.
+        </h2>
+
+        <p>
+          From honky-tonk and boogie-woogie to grunge pop, punk rock,
+          bluegrass, soul, and psychedelia, this record captures the
+          remarkable range of music coming out of Vermont's Queen&nbsp;City.
+        </p>
+
+        <p>
+          Featuring emerging artists alongside members of Trey Anastasio
+          Band, Mike Gordon Band, and Joe Russo's Almost Dead, Burlington
+          Sounds brings together fourteen artists on one record celebrating
+          the city's extraordinary music&nbsp;scene.
+        </p>
+
+        <p>
+          100% of profits go directly to the musicians who made it possible.
+        </p>
+
+        <a
+          href="https://shop.burlingtonsounds.com/"
+          class="button button-primary"
+        >
+          Shop Burlington Sounds
+        </a>
+      </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+
+      <p class="section-label">Burlington Sounds, vol. 1</p>
+
+      <h2>
+        Find your next favorite band.
+      </h2>
+
+      <p>
+        Fourteen local artists. One record. A whole lot to discover.
+      </p>
+
+      <a
+        href="https://shop.burlingtonsounds.com/products/burlington-sounds-vol-1"
+        class="button button-primary"
+      >
+        Pre-order the Record — $25
+      </a>
+
+    </section>
 
     </div>
+
   </main>
 
-  <!-- SCRIPT -->
+
+  <!-- BAND POP-UP (filled in from the card that was clicked) -->
+  <dialog class="band-dialog" aria-labelledby="band-dialog-title">
+    <button type="button" class="band-dialog-close" aria-label="Close">&times;</button>
+    <div class="band-dialog-body">
+      <img class="band-dialog-photo" alt="">
+      <div class="band-dialog-content">
+        <div class="band-dialog-text" aria-live="polite"></div>
+
+        <div class="band-dialog-nav">
+          <button type="button" class="carousel-button" data-step="-1" aria-label="Previous band">&larr;</button>
+          <span class="band-dialog-count"></span>
+          <button type="button" class="carousel-button" data-step="1" aria-label="Next band">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+
+  <footer>
+    <img
+      class="footer-logo"
+      src="assets/champ-records-logo.png"
+      alt="Champ Records"
+      width="420"
+      height="238"
+      loading="lazy"
+    >
+
+    <p>Burlington Sounds · Champ Records · Burlington, Vermont</p>
+
+    <a href="https://shop.burlingtonsounds.com/">
+      Shop
+    </a>
+  </footer>
+
   <script>
-    (function () {
-      const form = document.getElementById("mc-form");
-      const emailInput = document.getElementById("mce-EMAIL");
-      const submitBtn = document.getElementById("mc-submit");
-      const success = document.getElementById("mc-success");
-      const msg = document.getElementById("mc-message");
-      const igLink = document.getElementById("ig-link");
+    // Arrow buttons scroll the band carousel one screenful at a time
+    document.querySelectorAll(".bands-carousel").forEach(function (carousel) {
+      var track = carousel.querySelector(".carousel-track");
+      var buttons = carousel.querySelectorAll(".carousel-button");
 
-      // ---- Tracking state (per-page-load) ----
-      let formFocusedAt = null;
-      let firstTypedAt = null;
-      let hasTyped = false;
-      let hasSubmitted = false;
-      let abandonSent = false;
-
-      function showMessage(text) {
-        msg.textContent = text;
-        msg.style.display = "block";
+      function updateButtons() {
+        buttons[0].disabled = track.scrollLeft <= 4;
+        buttons[1].disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
       }
 
-      function track(eventName, params) {
-        if (typeof gtag === "function") {
-          gtag("event", eventName, params || {});
-        }
-      }
-
-      function secondsSince(ts) {
-        if (!ts) return null;
-        return Math.round((Date.now() - ts) / 1000);
-      }
-
-      // 1) Focus / start of intent
-      emailInput.addEventListener("focus", function () {
-        if (!formFocusedAt) formFocusedAt = Date.now();
-      });
-
-      // 2) First typing (start)
-      emailInput.addEventListener("input", function () {
-        if (!hasTyped) {
-          hasTyped = true;
-          firstTypedAt = Date.now();
-          track("email_signup_start", {
-            event_category: "engagement",
-            event_label: "homepage_form"
-          });
-        }
-      });
-
-      // 3) Button click (pre-submit intent)
-      submitBtn.addEventListener("click", function () {
-        track("email_signup_click", {
-          event_category: "engagement",
-          event_label: "homepage_form_button"
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var card = track.querySelector("li");
+          var step = card.offsetWidth + 16;
+          var perScreen = Math.max(1, Math.floor(track.clientWidth / step));
+          track.scrollBy({ left: step * perScreen * Number(button.dataset.direction) });
+          // refresh once the smooth scroll has settled
+          setTimeout(updateButtons, 500);
         });
       });
 
-      // 4) Submit (you show success immediately, so we count conversion here)
-      form.addEventListener("submit", function () {
-        const email = (emailInput.value || "").trim();
-        if (!email) return; // browser handles validation
+      track.addEventListener("scroll", updateButtons, { passive: true });
+      updateButtons();
+    });
 
-        hasSubmitted = true;
+    // Clicking a band card opens a pop-up with its bio;
+    // arrows, arrow keys or a swipe move to the previous/next band
+    var dialog = document.querySelector(".band-dialog");
+    var dialogPhoto = dialog.querySelector(".band-dialog-photo");
+    var dialogText = dialog.querySelector(".band-dialog-text");
+    var dialogCount = dialog.querySelector(".band-dialog-count");
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".band-card"));
+    var current = 0;
 
-        // Swap UI (no redirect)
-        form.style.display = "none";
-        success.style.display = "block";
+    function showBand(index) {
+      current = (index + cards.length) % cards.length;
+      var card = cards[current];
+      var photo = card.querySelector("img");
+      dialogPhoto.src = photo.src;
+      dialogPhoto.alt = photo.alt;
+      dialogText.innerHTML = card.nextElementSibling.innerHTML;
+      dialogText.querySelector("h3").id = "band-dialog-title";
+      dialogCount.textContent = (current + 1) + " / " + cards.length;
+      dialog.scrollTop = 0;
+      dialogText.scrollTop = 0;
+    }
 
-        // Conversion event (success shown)
-        track("email_signup", {
-          event_category: "engagement",
-          event_label: "homepage_form_success",
-          value: 1,
-          // time-to-submit metrics (best effort)
-          seconds_from_focus: formFocusedAt ? secondsSince(formFocusedAt) : undefined,
-          seconds_from_first_type: firstTypedAt ? secondsSince(firstTypedAt) : undefined,
-          started_typing: hasTyped ? 1 : 0
-        });
-
-        // Gentle follow-up guidance
-        setTimeout(function () {
-          showMessage("If you don’t see a confirmation email, check spam or try again.");
-        }, 2000);
+    cards.forEach(function (card, index) {
+      card.addEventListener("click", function () {
+        showBand(index);
+        dialog.showModal();
       });
+    });
 
-      // 5) Abandonment (focused/typed but never submitted)
-      function maybeSendAbandon(reason) {
-        if (abandonSent || hasSubmitted) return;
-
-        // Only count abandon if they showed intent
-        if (!formFocusedAt && !hasTyped) return;
-
-        abandonSent = true;
-        track("email_signup_abandon", {
-          event_category: "engagement",
-          event_label: "homepage_form",
-          abandon_reason: reason,
-          seconds_from_focus: formFocusedAt ? secondsSince(formFocusedAt) : undefined,
-          seconds_from_first_type: firstTypedAt ? secondsSince(firstTypedAt) : undefined,
-          started_typing: hasTyped ? 1 : 0
-        });
-      }
-
-      // If they leave the page / close tab / navigate away
-      window.addEventListener("pagehide", function () {
-        maybeSendAbandon("pagehide");
+    dialog.querySelectorAll("[data-step]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        showBand(current + Number(button.dataset.step));
       });
+    });
 
-      // If they switch tabs or background (not perfect, but useful)
-      document.addEventListener("visibilitychange", function () {
-        if (document.visibilityState === "hidden") {
-          maybeSendAbandon("visibility_hidden");
-        }
-      });
+    dialog.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowRight") showBand(current + 1);
+      if (event.key === "ArrowLeft") showBand(current - 1);
+    });
 
-      // Optional: if they blur out of the email field and haven't submitted
-      emailInput.addEventListener("blur", function () {
-        // small delay so submit click doesn’t falsely mark abandon
-        setTimeout(function () {
-          if (!hasSubmitted) maybeSendAbandon("input_blur");
-        }, 300);
-      });
+    var touchStartX = null;
+    dialog.addEventListener("touchstart", function (event) {
+      touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+    dialog.addEventListener("touchend", function (event) {
+      if (touchStartX === null) return;
+      var distance = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(distance) > 50) showBand(current + (distance < 0 ? 1 : -1));
+      touchStartX = null;
+    });
 
-      // 6) Instagram click
-      if (igLink) {
-        igLink.addEventListener("click", function () {
-          track("instagram_click", {
-            event_category: "engagement",
-            event_label: "homepage_success_state"
-          });
-        });
-      }
+    // when the pop-up closes, bring the last band viewed into view in the carousel
+    dialog.addEventListener("close", function () {
+      cards[current].scrollIntoView({ block: "nearest", inline: "nearest" });
+    });
 
-    })();
+    dialog.querySelector(".band-dialog-close").addEventListener("click", function () {
+      dialog.close();
+    });
+
+    // close when clicking the dimmed area outside the pop-up
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) dialog.close();
+    });
   </script>
 
 </body>

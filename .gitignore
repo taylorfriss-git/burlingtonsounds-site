@@ -1,0 +1,12 @@
+.DS_Store
+
+# Full-resolution source images (the site uses web-sized copies)
+assets/album_green.png
+assets/record_shirt_hat.png
+assets/flowers.png
+assets/champ_records.png
+assets/* *.png
+assets/Clive.png
+assets/Eustis.png
+assets/Hammydown.png
+assets/LaMP.png
