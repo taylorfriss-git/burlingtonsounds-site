@@ -88,6 +88,11 @@ a {
   white-space: nowrap;
 }
 
+.brand img {
+  height: 46px;
+  width: auto;
+}
+
 .header-shop-link {
   text-decoration: none;
   text-transform: uppercase;
@@ -748,6 +753,16 @@ p {
 }
 
 
+.final-cta > p.back-to-top {
+  margin: 28px 0 0;
+  font-size: 0.9rem;
+}
+
+.back-to-top a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* FOOTER */
 
 footer {
@@ -777,6 +792,11 @@ footer a {
   letter-spacing: 0.08em;
 }
 
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
 
 /* MOBILE */
 
@@ -792,6 +812,10 @@ footer a {
 
   .site-header {
     min-height: 72px;
+  }
+
+  .brand img {
+    height: 37px;
   }
 
   .hero {
