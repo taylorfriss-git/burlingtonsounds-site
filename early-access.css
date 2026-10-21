@@ -230,9 +230,69 @@ p {
   min-width: 0;
 }
 
-.hero-art img {
+.album-art {
+  position: relative;
   width: 89%;
   margin: 0 auto;
+}
+
+.album-flip {
+  display: block;
+  width: 100%;
+
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  perspective: 1800px;
+}
+
+.album-flip:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 4px;
+}
+
+/* front and back are framed identically; the card turns over around its
+   vertical axis like a record being flipped in someone's hands */
+.album-card {
+  display: block;
+  position: relative;
+
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(0.45, 0.05, 0.25, 1);
+}
+
+.album-card img {
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.album-back {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  transform: rotateY(180deg);
+}
+
+.album-flip[aria-pressed="true"] .album-card {
+  transform: rotateY(180deg);
+}
+
+/* hover is read from the wrapper, which doesn't move, so the turning
+   card can't slip out from under the cursor and flicker */
+@media (hover: hover) {
+  .album-art:hover .album-card {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .album-card {
+    transition: none;
+  }
 }
 
 .hero h1 {
@@ -824,15 +884,22 @@ footer a {
 
     min-height: auto;
 
-    padding: 16px 0 60px;
+    padding: 30px 0 28px;
   }
 
   .hero-art {
     order: 1;
   }
 
-  .hero-art img {
-    width: 92%;
+  /* ~22% smaller than before so the hero isn't all artwork on phones */
+  .album-art {
+    width: 72%;
+  }
+
+  /* phones keep it simple: title, description, button and shipping */
+  .hero-badges,
+  .hero-details {
+    display: none;
   }
 
   .hero-copy {
@@ -897,6 +964,19 @@ footer a {
 
   .intro h2 {
     margin-bottom: 0;
+  }
+
+  /* keep the story and the tracklist close together on phones */
+  .intro.section {
+    padding-bottom: 24px;
+  }
+
+  .intro-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tracklist-section.section {
+    padding-top: 48px;
   }
 
   .product-copy > p.section-label {
@@ -967,12 +1047,8 @@ footer a {
 
 @media (max-width: 850px) and (max-height: 600px) {
 
-  .hero-art img {
-    width: 72%;
-  }
-
-  .hero-details {
-    display: none;
+  .album-art {
+    width: 56%;
   }
 
 }

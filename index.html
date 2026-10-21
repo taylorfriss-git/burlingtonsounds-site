@@ -29,6 +29,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
   <link rel="preload" as="image" href="assets/album-cover.jpg">
+  <link rel="preload" as="image" href="assets/album-back.jpg">
   <link rel="stylesheet" href="early-access.css">
 
   <!-- Google tag (gtag.js) -->
@@ -81,13 +82,33 @@
     <section class="hero">
 
       <div class="hero-art">
-        <img
-          src="assets/album-cover.jpg"
-          alt="Burlington Sounds, vol. 1 album cover with green vinyl record"
-          fetchpriority="high"
-          width="1800"
-          height="1271"
-        >
+        <div class="album-art">
+          <!-- Hover (or tap on touch screens) turns the record over -->
+          <button
+            type="button"
+            class="album-flip"
+            aria-pressed="false"
+            aria-label="Show the back of the record"
+          >
+            <span class="album-card">
+              <img
+                class="album-front"
+                src="assets/album-cover.jpg"
+                alt="Burlington Sounds, vol. 1 album cover with green vinyl record"
+                fetchpriority="high"
+                width="1800"
+                height="1271"
+              >
+              <img
+                class="album-back"
+                src="assets/album-back.jpg"
+                alt="Back of the album jacket with the full tracklist, and the record's B-side label"
+                width="1800"
+                height="1271"
+              >
+            </span>
+          </button>
+        </div>
       </div>
 
       <div class="hero-copy">
@@ -110,16 +131,18 @@
           14 Tracks · 12" Vinyl · $25
         </p>
 
-        <a
-          href="https://shop.burlingtonsounds.com/"
-          class="button button-primary"
-        >
-          Pre-order the Record
-        </a>
+        <div class="hero-buy">
+          <a
+            href="https://shop.burlingtonsounds.com/"
+            class="button button-primary"
+          >
+            Pre-order the Record
+          </a>
 
-        <p class="shipping-note">
-          Estimated shipping November 2026.
-        </p>
+          <p class="shipping-note">
+            Estimated shipping November 2026.
+          </p>
+        </div>
 
       </div>
 
@@ -559,6 +582,23 @@
   </footer>
 
   <script>
+    // Album artwork: hover shows the back on mouse/trackpad devices (CSS);
+    // on touch screens, and for keyboard users, tapping/Enter toggles it
+    var albumFlip = document.querySelector(".album-flip");
+    var canHover = window.matchMedia("(hover: hover)");
+
+    albumFlip.addEventListener("click", function (event) {
+      var fromKeyboard = event.detail === 0;
+      if (canHover.matches && !fromKeyboard) return;
+
+      var flipped = albumFlip.getAttribute("aria-pressed") !== "true";
+      albumFlip.setAttribute("aria-pressed", String(flipped));
+      albumFlip.setAttribute(
+        "aria-label",
+        flipped ? "Show the front of the record" : "Show the back of the record"
+      );
+    });
+
     // Arrow buttons scroll the band carousel one screenful at a time
     document.querySelectorAll(".bands-carousel").forEach(function (carousel) {
       var track = carousel.querySelector(".carousel-track");
